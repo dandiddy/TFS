@@ -42,7 +42,8 @@ function Get-TFSBuildDefinition{
     Write-Verbose "Build definition id: '$Id'"
 
     if ($Revision) { $rev = "revision=$Revision&" }
-    $uri = "$proj_uri/_apis/build/definitions/$($Id)?$($rev)api-version=" + $global:tfs.api_version
+    
+    $uri = "$(get-projUri)/_apis/build/definitions/$($Id)?$($rev)api-version=" + $global:tfs.api_version
     Write-Verbose "URI: $uri"
 
     $params = @{ Uri = $uri; Method = 'Get'}

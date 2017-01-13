@@ -1,5 +1,12 @@
-$collection_uri = "{0}/{1}" -f $global:tfs.root_url, $global:tfs.collection
-$proj_uri       = "{0}/{1}" -f $collection_uri, $global:tfs.project
+function get-collectionUri()
+{
+    "{0}/{1}" -f $global:tfs.root_url, $global:tfs.collection
+}
+
+function get-projUri()
+{
+    "{0}/{1}" -f $(get-collectionUri), $global:tfs.project
+}
 
 function check_credential() {
     [CmdletBinding()]

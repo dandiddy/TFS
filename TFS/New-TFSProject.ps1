@@ -24,7 +24,7 @@ function New-TFSProject {
     )
     check_credential
 
-    $uri = "$collection_uri/_apis/projects/?api-version=" + $global:tfs.api_version
+    $uri = "$(get-collectionUri)/_apis/projects/?api-version=" + $global:tfs.api_version
     Write-Verbose "URI: $uri"
 
     $templateId = Get-TFSProcesses | ? name -eq $ProcessTemplate | % id

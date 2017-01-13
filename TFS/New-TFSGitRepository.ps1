@@ -13,7 +13,7 @@ function New-TFSGitRepository {
     )
     check_credential
 
-    $uri = "$proj_uri/_apis/git/repositories?api-version=" + $tfs.api_version
+    $uri = "$(get-projUri)/_apis/git/repositories?api-version=" + $tfs.api_version
     Write-Verbose "URI: $uri"
 
     $pid = Get-TFSProject $global:tfs.project | % id

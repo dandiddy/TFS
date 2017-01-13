@@ -16,7 +16,7 @@ function Remove-TFSGitRepository {
     $id = Get-TFSGitRepositories | ? name -eq $Name | % id
     Write-Verbose "Repository id: $id"
 
-    $uri = "$proj_uri/_apis/git/repositories/$($id)?api-version=" + $tfs.api_version
+    $uri = "$(get-projUri)/_apis/git/repositories/$($id)?api-version=" + $tfs.api_version
     Write-Verbose "URI: $uri"
 
     $params = @{ Uri = $uri; Method = 'Delete' }

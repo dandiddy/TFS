@@ -10,8 +10,8 @@ function Get-TFSProcesses {
     param(
     )
     check_credential
-
-    $uri = "$collection_uri/_apis/process/processes?api-version=" + $global:tfs.api_version
+    
+    $uri = "$(get-collectionUri)/_apis/process/processes?api-version=" + $global:tfs.api_version
     Write-Verbose "URI: $uri"
 
     $params = @{ Uri = $uri; Method = 'Get'}

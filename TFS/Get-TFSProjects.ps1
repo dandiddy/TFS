@@ -18,7 +18,7 @@ function Get-TFSProjects{
     $q_top  = '$top=' + $Top + '&'
     $q_skip = '$skip=' + $Skip + '&'
     $query_args = $q_top + $q_skip
-    $uri = "$collection_uri/_apis/projects?$($query_args)api-version=" + $global:tfs.api_version
+    $uri = "$(get-collectionUri)/_apis/projects?$($query_args)api-version=" + $global:tfs.api_version
     Write-Verbose "URI: $uri"
 
     $params = @{ Uri = $uri; Method = 'Get'}

@@ -14,7 +14,7 @@ function Get-TFSBuildDefinitions {
     check_credential
 
     if ($Name) { $q_name = 'name=' + $Name + '&' }
-    $uri = "$proj_uri/_apis/build/definitions?$($q_name)api-version=" + $global:tfs.api_version
+    $uri = "$(get-projUri)/_apis/build/definitions?$($q_name)api-version=" + $global:tfs.api_version
     Write-Verbose "URI: $uri"
 
     $params = @{ Uri = $uri; Method = 'Get'}

@@ -19,7 +19,7 @@ function Invoke-TFSBuild {
     if ( [String]::IsNullOrEmpty($Id) ) { throw "Resource with that name doesn't exist" }
     Write-Verbose "Build definition id: '$Id'"
 
-    $uri = "$proj_uri/_apis/build/builds?api-version=" + $global:tfs.api_version
+    $uri = "$(get-projUri)/_apis/build/builds?api-version=" + $global:tfs.api_version
     Write-Verbose "URI: $uri"
 
     $body = @{ definition=@{ id = $Id } }

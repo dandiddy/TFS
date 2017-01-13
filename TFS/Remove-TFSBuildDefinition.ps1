@@ -21,7 +21,7 @@ function Remove-TFSBuildDefinition {
     if ( [String]::IsNullOrEmpty($Id) ) { throw "Resource with that name doesn't exist" }
     Write-Verbose "Build definition id: $Id"
 
-    $uri = "$proj_uri/_apis/build/definitions/$($Id)?api-version=" + $global:tfs.api_version
+    $uri = "$(get-projUri)/_apis/build/definitions/$($Id)?api-version=" + $global:tfs.api_version
     Write-Verbose "URI: $uri"
 
     $params = @{ Uri = $uri; Method = 'Delete'}

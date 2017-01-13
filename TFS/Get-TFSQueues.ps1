@@ -10,7 +10,7 @@ function Get-TFSQueues {
     param ()
     check_credential
 
-    $uri = "$collection_uri/_apis/build/queues?api-version=" + $global:tfs.api_version
+    $uri = "$(get-collectionUri)/_apis/build/queues?api-version=" + $global:tfs.api_version
     Write-Verbose "URI: $uri"
 
     $params = @{ Uri = $uri; Method = 'Get'}

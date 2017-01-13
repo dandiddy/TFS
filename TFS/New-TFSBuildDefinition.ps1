@@ -19,7 +19,7 @@ function New-TFSBuildDefinition {
 
     if (!(Test-Path $JsonFile)) {throw "File doesn't exist: $JsonFile" }
 
-    $uri = "$proj_uri/_apis/build/definitions?api-version=" + $global:tfs.api_version
+    $uri = "$(get-projUri)/_apis/build/definitions?api-version=" + $global:tfs.api_version
     Write-Verbose "URI: $uri"
 
     $body = gc $JsonFile -Raw -ea Stop

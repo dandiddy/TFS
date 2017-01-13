@@ -28,7 +28,7 @@ function Update-TFSBuildDefinition {
     $json.revision = $remote.revision
     Write-Verbose "Using remote build definition attributes: id $($json.id), revision $($json.revision)"
 
-    $uri = "$proj_uri/_apis/build/definitions/$($json.id)?revision=$($remote.revision)&api-version=" + $global:tfs.api_version
+    $uri = "$(get-projUri)/_apis/build/definitions/$($json.id)?revision=$($remote.revision)&api-version=" + $global:tfs.api_version
     Write-Verbose "URI: $uri"
 
     $body   = $json | ConvertTo-Json -Depth 100

@@ -16,7 +16,7 @@ function Add-TFSBuildTag{
     )
     check_credential
 
-    $uri = "$proj_uri/_apis/build/builds/$Id/tags/$($Tag)?api-version=" + $global:tfs.api_version
+    $uri = "$(get-projUri)/_apis/build/builds/$Id/tags/$($Tag)?api-version=" + $global:tfs.api_version
     Write-Verbose "URI: $uri"
 
     $params = @{ Uri = $uri; Method = 'Put'}

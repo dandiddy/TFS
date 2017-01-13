@@ -18,7 +18,7 @@ function Get-TFSBuildDefinitionHistory{
     if ( [String]::IsNullOrEmpty($Id) ) { throw "Build definition with that name or id doesn't exist" }
     Write-Verbose "Build definition history id: $Id"
 
-    $uri = "$proj_uri/_apis/build/definitions/$($Id)/revisions?api-version=" + $global:tfs.api_version
+    $uri = "$(get-projUri)/_apis/build/definitions/$($Id)/revisions?api-version=" + $global:tfs.api_version
     Write-Verbose "URI: $uri"
 
     $params = @{ Uri = $uri; Method = 'Get' }

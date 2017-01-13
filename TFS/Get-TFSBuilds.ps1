@@ -71,7 +71,8 @@ function Get-TFSBuilds {
 
     $query_args = $q_top + $q_tag + $q_status + $q_result + $q_definitions +
                   $q_requestedFor + $q_buildNumber + $q_minFinishTime + $q_maxFinishTime + $q_properties
-    $uri = "$proj_uri/_apis/build/builds?$($query_args)api-version=" + $global:tfs.api_version
+                 
+    $uri = "$(get-projUri)/_apis/build/builds?$($query_args)api-version=" + $global:tfs.api_version
     Write-Verbose "URI: $uri"
 
     $params = @{ Uri = $uri; Method = 'Get'}
