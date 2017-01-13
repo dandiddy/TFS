@@ -1,3 +1,5 @@
+[![](https://img.shields.io/badge/PowerShell%20Gallery-TFS-blue.svg)](https://www.powershellgallery.com/packages/tfs)
+
 TFS
 ===
 
@@ -47,7 +49,7 @@ To use _ad hoc_ credentials when you have your main credential stored simply use
 
 This way stored credentials will be overridden only for the current session. To change the stored credentials for all subsequent sessions either delete them using the Control Panel (Manage Windows Credentials) and run any function again or use the following command:
 
-    $tfs.Credentials = New-Credential    #Get credential and store it in Credential Manager.
+    $tfs.Credentials = New-TFSCredential    #Get credential and store it in Credential Manager.
 
 Usage
 =====
